@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CaloriesTracker</string>
+
+    <string name="title_register">Register</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_history">History</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

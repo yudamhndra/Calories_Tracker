@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "471502660249",
+    "project_id": "calories-tracker-f2691",
+    "storage_bucket": "calories-tracker-f2691.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471502660249:android:e708922ac9eb71d0674e08",
+        "android_client_info": {
+          "package_name": "com.example.caloriestracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqfAKQ5tux9zDtokNl2swLvpZD19-fJOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471502660249:android:6b49770ce95e1ad1674e08",
+        "android_client_info": {
+          "package_name": "com.example.uas_caloriestracker_ppapb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqfAKQ5tux9zDtokNl2swLvpZD19-fJOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471502660249:android:431649c428f0cfe7674e08",
+        "android_client_info": {
+          "package_name": "com.example.uas_ppapb_caloriestracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqfAKQ5tux9zDtokNl2swLvpZD19-fJOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

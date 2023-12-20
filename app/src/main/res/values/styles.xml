@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/lavender</item>
+        <item name="colorPrimaryDark">@color/lavender</item>
+        <item name="colorAccent">@color/lavender</item>
+        <!-- ... tambahkan properti warna lainnya sesuai kebutuhan Anda -->
+    </style>
+
+    <style name="edittxt_field">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/edittxt_bg</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingStart">31dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+</resources>
