@@ -1,16 +1,19 @@
 package com.example.caloriestracker.ui.auth.register
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.caloriestracker.ui.auth.session.SessionManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel(private val context: Context) : ViewModel() {
 
     private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
     private val firestore: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
+    private val sessionManager = SessionManager(context)
 
     fun registerUser(
         email: String,
@@ -37,6 +40,9 @@ class RegisterViewModel : ViewModel() {
                 if (userId != null) {
                     saveUserDataToFirestore(userId, email, username, phone, bbTarget, bb, tb, "user")
                 }
+
+                // Save user info to SharedPreferences
+                sessionManager.saveUserInfo(userId!!, email, username, phone, bbTarget, bb, tb, "user")
 
                 onRegisterComplete(true, "Pendaftaran Berhasil")
             } catch (e: Exception) {
@@ -70,3 +76,4 @@ class RegisterViewModel : ViewModel() {
         userRef.set(user).await()
     }
 }
+

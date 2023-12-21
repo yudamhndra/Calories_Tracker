@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.viewpager2.widget.ViewPager2
 import com.example.caloriestracker.MainActivity
-import com.example.caloriestracker.R
 import com.example.caloriestracker.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
@@ -18,7 +16,9 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: RegisterViewModel by viewModels()
+    private val viewModel: RegisterViewModel by viewModels {
+        RegisterViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,12 +43,14 @@ class RegisterFragment : Fragment() {
         val bb = binding.bbField.text.toString().trim()
         val tb = binding.etTb.text.toString().trim()
 
+        binding.progressBar.visibility = View.VISIBLE
+
         viewModel.registerUser(email, password, username, phone, bbTarget, bb, tb) { success, message ->
+            binding.progressBar.visibility = View.INVISIBLE
             if (success) {
-                Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
                 navigateToMainActivity()
             } else {
-                Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -64,3 +66,4 @@ class RegisterFragment : Fragment() {
         _binding = null
     }
 }
+

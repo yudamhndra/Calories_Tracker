@@ -1,6 +1,5 @@
 package com.example.caloriestracker.ui.auth
 
-import ViewPagerAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2

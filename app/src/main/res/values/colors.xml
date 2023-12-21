@@ -8,5 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="danger">#C10303</color>
+    <color name="warning">#FFDE07</color>
+
     <color name="lavender">#8692f7</color>
+    <color name="mint">#8bcb98</color>
 </resources>

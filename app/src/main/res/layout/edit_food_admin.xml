@@ -1,0 +1,47 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:layout_marginBottom="8dp">
+
+    <EditText
+        android:id="@+id/editTxtNamaMakanan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/edittxt_field"
+        android:hint="Nama Makanan"
+        android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editTxtDeskripsiMakanan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/edittxt_field"
+        android:hint="Jumlah Kalori"
+        android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/editTxtNamaMakanan"
+        android:layout_alignParentStart="true"
+        />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:background="@drawable/rounded_warning_btn"
+        android:textColor="@color/white"
+        android:layout_below="@id/editTxtDeskripsiMakanan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:onClick="onEditClick" />
+
+</RelativeLayout>
