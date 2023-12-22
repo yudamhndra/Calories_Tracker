@@ -39,9 +39,9 @@ class RegisterFragment : Fragment() {
         val password = binding.etPassword.text.toString().trim()
         val username = binding.etUsername.text.toString().trim()
         val phone = binding.etPhonenum.text.toString().trim()
-        val bbTarget = binding.etTargetBB.text.toString().trim()
-        val bb = binding.bbField.text.toString().trim()
-        val tb = binding.etTb.text.toString().trim()
+        val bbTarget = binding.etTargetBB.text.toString().toDoubleOrNull() ?: 0.0
+        val bb = binding.bbField.toString().toDoubleOrNull() ?: 0.0
+        val tb = binding.etTb.text.toString().toDoubleOrNull() ?: 0.0
 
         binding.progressBar.visibility = View.VISIBLE
 

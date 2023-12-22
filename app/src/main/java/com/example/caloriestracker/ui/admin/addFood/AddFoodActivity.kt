@@ -42,15 +42,30 @@ class AddFoodActivity : AppCompatActivity() {
         db.collection("makanan")
             .add(makanan)
             .addOnSuccessListener { documentReference ->
-                etNamaMakanan.text.clear()
-                etJumlahKalori.text.clear()
-//                showToast("Makanan berhasil ditambahkan : ${documentReference.id}")
-                showToast("Makanan berhasil ditambahkan")
-                val intent = Intent(this, AdminMainActivity::class.java)
+                val makananWithId = hashMapOf(
+                    "id" to documentReference.id,
+                    "nama" to namaMakanan,
+                    "kalori" to jumlahKalori
+                )
+
+                // Update dokumen dengan menambahkan ID
+                db.collection("makanan").document(documentReference.id)
+                    .set(makananWithId)
+                    .addOnSuccessListener {
+                        etNamaMakanan.text.clear()
+                        etJumlahKalori.text.clear()
+                        showToast("Makanan berhasil ditambahkan dengan ID: ${documentReference.id}")
+                        val intent = Intent(this, AdminMainActivity::class.java)
+                        startActivity(intent)
+                    }
+                    .addOnFailureListener { e ->
+                        showToast("Makanan gagal ditambahkan: $e")
+                    }
             }
             .addOnFailureListener { e ->
                 showToast("Makanan gagal ditambahkan: $e")
             }
+
 
     }
 

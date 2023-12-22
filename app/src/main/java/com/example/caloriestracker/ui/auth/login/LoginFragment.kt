@@ -2,7 +2,6 @@ package com.example.caloriestracker.ui.auth.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,15 +19,18 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: LoginViewModel
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        sessionManager = SessionManager(requireContext())
 
         val loginButton = binding.loginButton
 
@@ -42,37 +44,32 @@ class LoginFragment : Fragment() {
                 email,
                 password,
                 { userId -> checkUserRole(userId) },
-                { errorMessage -> showToast("Login Gagal: $errorMessage")
-                    binding.progressBar.visibility = View.INVISIBLE}
-
+                { errorMessage ->
+                    showToast("Login Gagal: $errorMessage")
+                    binding.progressBar.visibility = View.INVISIBLE
+                }
             )
         }
 
         return view
     }
 
+
     private fun checkUserRole(userId: String) {
         viewModel.getUserRole(
             userId,
-            { role ->
-                saveUserInfoAndNavigate(userId, role)
-            },
-            { errorMessage ->
-                showToast("Failed to get user role: $errorMessage")
-            }
+            { role -> saveUserInfoAndNavigate(userId, role) },
+            { errorMessage -> showToast("Failed to get user role: $errorMessage") }
         )
     }
 
     private fun saveUserInfoAndNavigate(userId: String, role: String) {
         val email = binding.loginEmail.text.toString()
 
-        SessionManager(requireContext()).saveUserInfo(
-            userId, email, "", "", "", "", "", role
-        )
+        sessionManager?.saveUserInfo(userId, email, "", "", "", "", "", role)
 
         navigateToCorrectPage(role)
     }
-
 
     private fun navigateToCorrectPage(role: String) {
         if (role == "admin") {
@@ -99,4 +96,3 @@ class LoginFragment : Fragment() {
         _binding = null
     }
 }
-

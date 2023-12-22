@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.caloriestracker.data.model.FoodItem
+import com.example.caloriestracker.data.model.firestore.FoodItem
 import kotlinx.coroutines.launch
 
 class FoodViewModel(private val repository: FoodRepository) : ViewModel() {
@@ -22,6 +22,8 @@ class FoodViewModel(private val repository: FoodRepository) : ViewModel() {
             _foodList.postValue(result)
         }
     }
+
+
 }
 
 
